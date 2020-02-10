@@ -1,0 +1,102 @@
+﻿<html>
+<head>
+    <style>
+    </style>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./resources/style.css">
+    <title>
+        CS438002: Assignment 1 (Last Name, First Name, Student Number)
+    </title>
+
+    <script type="text/javascript" src="./resources/init.js"></script>
+    <script type="text/javascript" src="./resources/math.js"></script>
+    <script type="text/javascript" src="./resources/color.js"></script>
+    <script type="text/javascript" src="task11.js"></script>
+</head>
+
+<body onload="main();">
+    <div class="content">
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h1>New Jersey Institute of Technology: CS 438 002<br /> Interactive Computer Graphics Spring 2020</h1>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h2>Assignment 1</h2>
+            <p>
+                Author: Last Name, First Name, Student Number
+            </p>
+            <p>
+                Date: 1/31/2020<br />
+                Due: 2/12/2020<br />
+            </p>
+
+            <p>Go to <a href="assignment1.html">Assignemt Home</a> | <a href="task11.html">Task 1</a> | <a href="task12.html">Task 2</a> | <a href="task13.html">Task 3</a></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Task 1 (6 points)</h3>
+            <p>
+                <b>Search for TODO_A1 in the JS file to find all tasks in the code!</b>
+                </b>
+            <p>Triangle subdivision and color interpolation:</p>
+            <p>
+                1a: Create a 2d <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpinski Gasket</a> geometry by calling this function recursively. Use the argument 'recursions' to specify the depth of the recursion. 
+                Use the function mix(a, b, lambda) for both the vertex and color interpolation with lambda = 0.5 (4 points). What happens if you use a different value for lambda (1 point)?
+                Explain in the documentation below.
+            </p>
+            <p>
+                1b: What does the slider 'Alpha' change? How? Explain in the documentation below (1 point).
+            </p>
+            <p>
+                Your result should look like on the image below:
+            </p>
+            <img style="text-align:center" src="task11.jpg" />
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>WebGL Canvas</h3>
+            <div class="container">
+                <canvas id="canvas" width="800" height="600">
+                    Your browser does not support html5.
+                </canvas>
+                <div class="uiwrapper">
+                    <div class="uibox">Recursions: </div>
+                    <div class="uibox"> 0 <input id="rangeSlider" type="range" min="0" max="8" step="1" value="0" /> 8</div>
+                    <div class="uibox">Lambda: </div>
+                    <div class="uibox">0 <input id="lambdaSlider" type="range" min="0" max="1" step="0.05" value="0.5" /> 1</div>
+                    <div class="uibox">Alpha: </div>
+                    <div class="uibox"> 0 <input id="alphaSlider" type="range" min="0" max="1" step="0.1" value="1" /> 1</div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Documentation</h3>
+            <p>
+                Please write a short report here.
+                It should list what you have implemented, as well as a brief discussion and your conclusions.
+                Also add as many comments in your code as possible---it will help us in judging your work.
+            </p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Happy Coding !</h3>
+            <p>
+                Instructor: Assoc. Prof. Dr. Przemyslaw Musialski<br />
+                Email: przemyslaw.musialski@njit.edu<br />
+                Grader :Ashish Kumar(ak2633@njit.edu)<br />
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
