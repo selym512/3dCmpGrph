@@ -3,9 +3,9 @@
 
 // ----------------------------------------------------------------------------
 //*** TODO_A1 : Insert your credentials below ***
-var lastname = 'Smith';
-var firstname = 'John';
-var studentnum = '010110';
+var lastname = 'Myles';
+var firstname = 'Santapaga';
+var studentnum = '31458433';
 // ----------------------------------------------------------------------------
 
 var vertexShaderSrc = `
@@ -71,6 +71,7 @@ function createTriangleGasketGeometry(recursions, lambda) {
             // with lambda = 0.5. What happens if you use a different value for lambda?
 
             // code here
+            //if we're still reccursing we divide into 3 triangles again
             divideTriangle(a, mix(b,a,lambda), mix(c,a,lambda), ca, mix(cb,ca,lambda), mix(cc,ca,lambda), count-1)
             divideTriangle(mix(a,b,lambda), b, mix(c,b,lambda), mix(ca,cb,lambda), cb, mix(cc,cb,lambda), count-1)
             divideTriangle(mix(a,c,lambda), mix(b,c,lambda), c, mix(ca,cc,lambda), mix(cb,cc,lambda), cc, count-1)

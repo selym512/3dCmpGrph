@@ -5,7 +5,7 @@
 //*** TODO_A1 : Insert your credentials below ***
 var lastname = 'Myles';
 var firstname = 'Santapaga';
-var studentnum = '010110';
+var studentnum = '31458433';
 // ----------------------------------------------------------------------------
 
 
@@ -39,9 +39,16 @@ function createCircleGeometry(radius, segments) {
     var pi2 = 2 * Math.PI;
     var step = pi2 / segments;
 
-    var points = [];
-    var colors = [];
-    
+
+    var points = [vec2(0.0 , 0.0)];
+    var colors = [vec3(1.0, 1.0, 1.0)];
+
+    // for the amount of segments we add
+    // another vector for the trianlge_fan
+    for(var i = 0; i <= segments + 1; i++){
+        points.push(vec2(radius * Math.cos(i* step), (radius * Math.sin(i * step))));
+        colors.push(vec3(hsvToRgb( i/100, 1.0, 1.0)));
+    }
 
     
     // *** TODO_A1 : Task 2a
@@ -54,46 +61,11 @@ function createCircleGeometry(radius, segments) {
 
     // code here
 
-    // GLint nverts = segments + 2;
-
-
-    var tpoints = [
-        vec2(0, 0),
-        vec2(radius, 0),
-        vec2(radius * Math.cos(step), radius * Math.sin(step))
-    ];
-
-   
-    // tpoints[1] = rotate(20, tpoints[1]);
-    console.log(segments);
-    // console.log(add(mat2(tpoints), mat2(rotateX(90))));
-    // console.log("rotated");
-    // console.log(rotate(pi2, tpoints));
-    var tcolors = [
-        vec3(1.0, 0.0, 0.0),
-        vec3(0.0, 1.0, 0.0),
-        vec3(0.0, 0.0, 1.0),
-
-    ];
-    // tpoints.push(rotate(90, tpoints[0]),rotate(90, tpoints[1]),rotate(90, tpoints[2]))
-    // tcolors.push(rotate(90, tcolors[0]),rotate(90, tcolors[1]),rotate(90, tcolors[2]))
-
-    // GLfloat 
-    if(segments > 3){
-        for(var i = 1; i < segments; i++){
-            tpoints.push(vec2(0, 0));
-            tpoints.push(vec2(radius * Math.cos(step*i), radius * Math.sin(step*i)));
-            tpoints.push(vec2(radius * Math.cos(step*(i+1)), radius * Math.sin(step*(i+1))));
-            tcolors.push(hsvToRgb(1, 0, 0), hsvToRgb(0, 1, 0), hsvToRgb(0, 0, 1));
-
-        }
-    }
-
-    return flattenArrays(tpoints, tcolors);
+    return flattenArrays(points, colors);
 }
 
 
-// ------------------------------d----------------------------------------------
+// ----------------------------------------------------------------------------
 // Main function of the WebGL program. 
 // It contains further functions as nested functions used for redering.
 // This avoids the usage of global variables: all variables can be 
@@ -146,8 +118,6 @@ function main() {
 
     // Create geometric object/scene
     var geometry = createCircleGeometry(0.7, 3);
-    console.log("hello GEOMETRY LENGTH");
-    console.log(geometry.length);
     // Create a buffer for the positions in GPU memory.
     var triangleVertexBufferObject = gl.createBuffer();
     // Bind the buffer that we created just now to be the active buffer.
@@ -230,28 +200,33 @@ function main() {
     // to be called each time anything has changes and needs to be updated. 
     function render() {
         // Clears the colorbuffer with the color specified above. 
-        gl.enableVertexAttribArray(colorAttribLocation);
         gl.clear(gl.COLOR_BUFFER_BIT);
-
 
          //*** TODO_A1 : Task 2b
          //Adapt the rendering function to render the cirle geometry using a TRIANGLE_FAN. 
          //Use the same geometry to render a black outline of the circle 
          //using a LINE_STRIP.
         
+        //
+
          //Take care of proper management of the attributes using 
-         //gl.enableVertexAttribArray(colorAttribLocation) and 
-         //gl.disableVertexAttribArray(colorAttribLocation);
+         gl.enableVertexAttribArray(colorAttribLocation);
+
+         gl.drawArrays(gl.TRIANGLE_FAN, 0, geometry.length / 5);
+
+         gl.disableVertexAttribArray(colorAttribLocation);
+
+         gl.drawArrays(gl.LINE_STRIP, 1, geometry.length / 5);
+
         //
         // You can override the attribute with one constant value using
         // gl.vertexAttrib4f(colorAttribLocation, r, g , b, a); 
 
+
+
         // code here
-        gl.drawArrays(gl.TRIANGLE_FAN, 0, geometry.length / 5);
-
-        gl.disableVertexAttribArray(colorAttribLocation);
-
     }
+
 }
 
 

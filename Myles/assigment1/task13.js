@@ -3,9 +3,9 @@
 
 // ----------------------------------------------------------------------------
 //*** TODO_A1 : Insert your credentials below ***
-var lastname = 'Smith';
-var firstname = 'John';
-var studentnum = '010110';
+var lastname = 'Myles';
+var firstname = 'Santapaga';
+var studentnum = '31458433';
 // ----------------------------------------------------------------------------
 
 
@@ -110,6 +110,18 @@ function createTetraGasketGeometry(recursions) {
             // with lambda = 0.5. What happens if you use a different value for lambda?
 
             // code here
+            // here we divide the tetra if we're recursing
+            var lambda = .5;
+            divideTetra(a, mix(a, b, lambda), mix(a, c ,lambda), mix(a, d, lambda), count - 1);
+            // Top triangle
+            divideTetra(mix(a, b, lambda), b, mix(b, c ,lambda), mix(b, d, lambda), count - 1);
+            // Left triangle
+            divideTetra(mix(a, c, lambda), mix(b, c ,lambda), c, mix(c, d, lambda), count - 1);
+            // Right triangle
+            divideTetra(mix(a, d, lambda), mix(b, d ,lambda), mix(c, d, lambda), d, count - 1);
+
+
+
         }
     }
 }
@@ -206,21 +218,22 @@ function main() {
         // Turn on the position attribute
         gl.enableVertexAttribArray(positionAttribLocation);
         // Tell the position attribute how to get data out of triangleVertexBuffer (ARRAY_BUFFER)
-        var size = 2;						                // number of elements per attribute, it is a vec2 thus 2.
+        var size = 3;						                // number of elements per attribute, it is a vec2 thus 2.
         var type = gl.FLOAT;				                // type of elements, each are 32 bit float thus type is float.
         var normalize = gl.FALSE;			                // whether or not the data is normalized. It is false for positions.  
-        var stride = 5 * Float32Array.BYTES_PER_ELEMENT;	// size of an individual vertex (5 floats = 2 pos, 3 color)
+        var stride = 6 * Float32Array.BYTES_PER_ELEMENT;	// size of an individual vertex (5 floats = 2 pos, 3 color)
         var offset = 0;                                     // offset from beginning of the single vertex to this attribute
         gl.vertexAttribPointer(positionAttribLocation, size, type, normalize, stride, offset);
 
         // Turn on the color attribute
         gl.enableVertexAttribArray(colorAttribLocation);
         // Tell the color attribute how to get data out of triangleVertexBuffer (ARRAY_BUFFER)
+        //extended the stride
         var size = 3;						                // number of elements per attribute
         var type = gl.FLOAT;				                // type of elements, each are 32 bit float thus type is float.
         var normalize = gl.FALSE;			                // whether or not the data is normalized. it is false for colors  
-        var stride = 5 * Float32Array.BYTES_PER_ELEMENT;	// size of an individual vertex and its color
-        var offset = 2 * Float32Array.BYTES_PER_ELEMENT;    // offset from beginning of the single vertex to this attribute
+        var stride = 6 * Float32Array.BYTES_PER_ELEMENT;	// size of an individual vertex and its color
+        var offset = 3 * Float32Array.BYTES_PER_ELEMENT;    // offset from beginning of the single vertex to this attribute
         gl.vertexAttribPointer(colorAttribLocation, size, type, normalize, stride, offset);
 
     
@@ -262,8 +275,8 @@ function main() {
          //*** TODO_A1 : Task 3d ***
          //Adjust the parameters of the drawArrays call in order to be able to deal with
          //the new vertex buffer object (VBO) which now contains 3d-floating point positions.         
-
-            gl.drawArrays(gl.TRIANGLES, 0, geometry.length / 5);        
+        // adjusted the parameter to handle 6 float points
+            gl.drawArrays(gl.TRIANGLES, 0, geometry.length / 6);        
     }
 }
 

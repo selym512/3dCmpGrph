@@ -1,0 +1,106 @@
+﻿<html>
+<head>
+    <style>
+    </style>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./resources/style.css">
+    <title>
+        CS438002: Assignment 1 (Last Name, First Name, Student Number)
+    </title>
+
+    <script type="text/javascript" src="./resources/init.js"></script>
+    <script type="text/javascript" src="./resources/math.js"></script>
+    <script type="text/javascript" src="./resources/color.js"></script>
+    <script type="text/javascript" src="task13.js"></script>
+</head>
+
+<body onload="main();">
+    <div class="content">
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h1>New Jersey Institute of Technology: CS 438 002<br /> Interactive Computer Graphics Spring 2020</h1>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h2>Assignment 1</h2>
+            <p>
+                Author: Last Name, First Name, Student Number
+            </p>
+            <p>
+                Date: 1/31/2020<br />
+                Due: 2/12/2020<br />
+            </p>
+            <p>Go to <a href="assignment1.html">Assignemt Home</a> | <a href="task11.html">Task 1</a> | <a href="task12.html">Task 2</a> | <a href="task13.html">Task 3</a></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Task 3 (6 points)</h3>
+			
+			<p>
+				<b>Search for TODO_A1 in the JS file to find all tasks in the code!</b>
+			</b>
+
+            <p>Drawing of 3D objects:</p>
+            <p>
+                3a: Create a 3d <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpinski Gasket</a> geometry composed of regular <a href="https://en.wikipedia.org/wiki/Tetrahedron">tetrahedra</a> by calling this function recursively. Use the argument 'recursions' to specify the depth of the recursion. Use the function mix(a, b, lambda) for both the vertex and color interpolation with lambda = 0.5 (3 points)?
+            </p>
+            <p>
+                3b: Extend the previous vertex shader to handle 3d positions as input attributes (1 point).
+            </p>
+            <p>
+                3c: Adjust the vertex buffer object specification for positions and colors accordingly for usage of 3d points. In particular, you need to take care of the size, stride, and offset values of the buffer (1 point).
+            </p>
+            <p>
+                3d: Adjust the parameters of the drawArrays call in order to be able to deal with the new vertex buffer object (VBO) which now contains 3d-floating point positions (1 point).
+            </p>
+            <p>
+                Your result should look like in the image below, however, you can choose your own colors for the faces of the tetrahedra.
+            </p>
+            <img style="text-align:center" src="task13.jpg" />
+            <p></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>WebGL Canvas</h3>
+            <div class="container">
+                <canvas id="canvas" width="800" height="600">
+                    Your browser does not support html5.
+                </canvas>
+                <div class="uiwrapper">
+                    <div class="uibox">Recursions: </div>
+                    <div class="uibox"> 0 <input id="rangeSlider" type="range" min="0" max="8" step="1" value="0" /> 8</div>
+                    <div class="uibox">Alpha: </div>
+                    <div class="uibox"> 0 <input id="alphaSlider" type="range" min="0" max="1" step="0.1" value="1" /> 1</div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Documentation</h3>
+            <p>
+                Please write a short report here.
+                It should list what you have implemented, as well as a brief discussion and your conclusions.
+                Also add as many comments in your code as possible---it will help us in judging your work.
+            </p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Happy Coding !</h3>
+            <p>
+                Instructor: Assoc. Prof. Dr. Przemyslaw Musialski<br />
+                Email: przemyslaw.musialski@njit.edu<br />
+                Grader :Ashish Kumar(ak2633@njit.edu)<br />
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+    <style>
+    </style>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./resources/style.css">
+    <title>
+        CS438002: Assignment 1 (Last Name, First Name, Student Number)
+    </title>
+
+    <script type="text/javascript" src="./resources/init.js"></script>
+    <script type="text/javascript" src="./resources/math.js"></script>
+    <script type="text/javascript" src="./resources/color.js"></script>
+    <script type="text/javascript" src="task12.js"></script>
+</head>
+
+<body onload="main();">
+    <div class="content">
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h1>New Jersey Institute of Technology: CS 438 002<br /> Interactive Computer Graphics Spring 2020</h1>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h2>Assignment 1</h2>
+            <p>
+                Author: Last Name, First Name, Student Number
+            </p>
+            <p>
+                Date: 1/31/2020<br />
+                Due: 2/12/2020<br />
+            </p>
+            <p>Go to <a href="assignment1.html">Assignemt Home</a> | <a href="task11.html">Task 1</a> | <a href="task12.html">Task 2</a> | <a href="task13.html">Task 3</a></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Task 2 (8 points)</h3>
+
+            <p>
+                <b>Search for TODO_A1 in the JS file to find all tasks in the code!</b>
+                </b>
+
+            <p>Circle drawing and color interpolation:</p>
+            <p>
+                2a: Create a circle geometry which can be rendered using a TRIANGLE_FAN. Use the arguments of the function to specify the radius of the circle and the number of linear segments to approximate it (3 points).
+                Interpolate the color values on the circle linearly using the HUE of the <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSV color-space</a> (use function hsvToRgb(.,.,.)) (2 points).
+            </p>
+            <p>
+                2b: Adapt the rendering function to render the circle geometry using a TRIANGLE_FAN. Use the same geometry to render a black outline of the circle using a LINE_STRIP.
+                Take care of proper management of the attributes using gl.enableVertexAttribArray(colorAttribLocation) and gl.disableVertexAttribArray(colorAttribLocation); (2 points).
+                Your result should look like on the image below.
+            </p>
+            <p>
+                2c: Why is the displayed circle not round? Explain in the documentation below (1 point).
+            </p>
+            <img style="text-align:center" src="task12.jpg" />
+
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>WebGL Canvas</h3>
+            <div class="container">
+                <canvas id="canvas" width="800" height="600">
+                    Your browser does not support html5.
+                </canvas>
+                <div class="uiwrapper">
+                    <div class="uibox">Segments: </div>
+                    <div class="uibox"> 0 <input id="rangeSlider" type="range" min="3" max="100" step="1" value="0" /> 100</div>
+                    <div class="uibox">Alpha: </div>
+                    <div class="uibox"> 0 <input id="alphaSlider" type="range" min="0" max="1" step="0.1" value="1" /> 1</div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Documentation</h3>
+            <p>
+                Please write a short report here.
+                It should list what you have implemented, as well as a brief discussion and your conclusions.
+                Also add as many comments in your code as possible---it will help us in judging your work.
+            </p>
+        </div>
+
+        <!--------------------------------------------------------------------------->
+        <div class="textdiv">
+            <h3>Happy Coding !</h3>
+            <p>
+                Instructor: Assoc. Prof. Dr. Przemyslaw Musialski<br />
+                Email: przemyslaw.musialski@njit.edu<br />
+                Grader :Ashish Kumar(ak2633@njit.edu)<br />
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
